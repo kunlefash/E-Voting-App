@@ -1,1 +1,1 @@
-### An E-Voting-App web application
+### A Decentralized E-Voting-App web application
