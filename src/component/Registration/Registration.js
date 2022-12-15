@@ -1,15 +1,8 @@
-// Node modules
 import React, { Component } from "react";
-
-// Components
 import Navbar from "../Navbar/Navigation";
 import NavbarAdmin from "../Navbar/NavigationAdmin";
 import NotInit from "../NotInit";
-
-// CSS
 import "./Registration.css";
-
-// Contract
 import getWeb3 from "../../getWeb3";
 import Election from "../../contracts/Election.json";
 

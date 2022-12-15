@@ -4,7 +4,7 @@ import Navbar from "../Navbar/Navigation";
 import NavbarAdmin from "../Navbar/NavigationAdmin";
 import NotInit from "../NotInit";
 import getWeb3 from "../../getWeb3";
-import Election from "../../contracts/Election.json"
+import Election from "../../contracts/Election.json";
 import "./Voting.css";
 
 export default class Voting extends Component {
