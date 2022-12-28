@@ -137,7 +137,7 @@ export default class Result extends Component {
 
 function displayWinner(candidates) {
   const getWinner = (candidates) => {
-    // Returns an object having maxium vote count
+    // Returns an object having maximum vote count
     let maxVoteRecived = 0;
     let winnerCandidate = [];
     for (let i = 0; i < candidates.length; i++) {

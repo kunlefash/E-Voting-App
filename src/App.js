@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from "./component/Home";
 import Voting from "./component/Voting/Voting";
 import Results from "./component/Results/Results";

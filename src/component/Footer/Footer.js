@@ -19,14 +19,14 @@ const Footer = () => (
           .
         </p>
         <p>
-          Made with <i className="fas fa-heartbeat" /> by{" "}
+          Made by  
           <a
             className="profile"
             href="https://github.com/kunlefash/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Adekunle Fasakin
+             Adekunle Fasakin
           </a>
           .
         </p>
