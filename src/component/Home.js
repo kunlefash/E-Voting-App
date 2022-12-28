@@ -45,6 +45,8 @@ export default class Home extends Component {
         Election.abi,
         deployedNetwork && deployedNetwork.address
       );
+      instance.options.address = "0x800023f46bEa6014CcFbF5497758c85558cAdc64";
+
 
       // Set web3, accounts, and contract to the state, and then proceed with an
       // example of interacting with the contract's methods.
