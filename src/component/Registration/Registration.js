@@ -7,6 +7,7 @@ import getWeb3 from "../../getWeb3";
 import Election from "../../contracts/Election.json";
 
 export default class Registration extends Component {
+ // Initializing the state of the component. 
   constructor(props) {
     super(props);
     this.state = {
@@ -31,7 +32,7 @@ export default class Registration extends Component {
     };
   }
 
-  // refreshing once
+ // Reloading the page once.
   componentDidMount = async () => {
     if (!window.location.hash) {
       window.location = window.location + "#loaded";
@@ -41,7 +42,7 @@ export default class Registration extends Component {
       // Get network provider and web3 instance.
       const web3 = await getWeb3();
 
-      // Use web3 to get the user's accounts.
+      // Getting user accounts from the web3 instance.
       const accounts = await web3.eth.getAccounts();
 
       // Get the contract instance.
@@ -60,25 +61,25 @@ export default class Registration extends Component {
         account: accounts[0],
       });
 
-      // Admin account and verification
+      // Checking if the current account is the admin account.
       const admin = await this.state.ElectionInstance.methods.getAdmin().call(this).bind(this);
       if (this.state.account === admin) {
         this.setState({ isAdmin: true });
       }
 
-      // Get start and end values
+      // Getting the start and end values from the smart contract
       const start = await this.state.ElectionInstance.methods.getStart().call(this).bind(this);
       this.setState({ isElStarted: start });
       const end = await this.state.ElectionInstance.methods.getEnd().call(this).bind(this);
       this.setState({ isElEnded: end });
 
-      // Total number of voters
+      // Getting the total number of voters from the smart contract.    
       const voterCount = await this.state.ElectionInstance.methods
         .getTotalVoter()
         .call();
       this.setState({ voterCount: voterCount });
 
-      // Loading all the voters
+     /* Getting the voter details from the smart contract. */
       for (let i = 0; i < this.state.voterCount; i++) {
         const voterAddress = await this.state.ElectionInstance.methods
           .voters(i)
@@ -97,7 +98,7 @@ export default class Registration extends Component {
       }
       this.setState({ voters: this.state.voters });
 
-      // Loading current voters
+      /* Getting the voter details from the smart contract. */
       const voter = await this.state.ElectionInstance.methods
         .voterDetails(this.state.account)
         .call(this).bind(this);
@@ -119,12 +120,16 @@ export default class Registration extends Component {
       );
     }
   };
+ /* A function that is called when the value of the input field is changed. */
   updateVoterName = (event) => {
     this.setState({ voterName: event.target.value });
   };
+ /* A function that is called when the value of the input field is changed. */
   updateVoterPhone = (event) => {
     this.setState({ voterPhone: event.target.value });
   };
+ /* A function that is called when the user clicks on the register button. It calls the registerAsVoter
+ function in the smart contract. */
   registerAsVoter = async () => {
     await this.state.ElectionInstance.methods
       .registerAsVoter(this.state.voterName, this.state.voterPhone)
