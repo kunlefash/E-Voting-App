@@ -2,9 +2,10 @@ import Web3 from "web3";
 
 const getWeb3 = () =>
   new Promise((resolve, reject) => {
-    // Wait for loading completion to avoid race conditions with web3 injection timing.
+    // Waiting for the page to load before it runs the code inside the function
     window.addEventListener("load", async () => {
-      // Modern dapp browsers...
+      /* Checking if the browser has web3 injected. If it does, it will use that. If not, it will
+      fallback to localhost. */
       if (window.ethereum) {
         const web3 = new Web3(window.ethereum);
         try {

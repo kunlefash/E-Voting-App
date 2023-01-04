@@ -34,6 +34,7 @@ export default class App extends Component {
     );
   }
 }
+// It renders a 404 page 
 class NotFound extends Component {
   render() {
     return (
