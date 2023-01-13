@@ -62,7 +62,7 @@ export default class Registration extends Component {
       });
 
       // Checking if the current account is the admin account.
-      const admin = await this.state.ElectionInstance.methods.getAdmin().call(this).bind(this);
+      const admin = await this.state.ElectionInstance.methods.getAdmin.call(this).bind(this);
       if (this.state.account === admin) {
         this.setState({ isAdmin: true });
       }
