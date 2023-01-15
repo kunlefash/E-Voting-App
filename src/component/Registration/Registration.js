@@ -62,16 +62,16 @@ export default class Registration extends Component {
       });
 
       // Checking if the current account is the admin account.
-      const admin = await this.state.ElectionInstance.methods.getAdmin.call(this).bind(this);
+      const admin = await this.state.ElectionInstance.methods.getAdmin.call();
       if (this.state.account === admin) {
         this.setState({ isAdmin: true });
       }
 
-      // Getting the start and end values from the smart contract
-      const start = await this.state.ElectionInstance.methods.getStart().call(this).bind(this);
-      this.setState({ isElStarted: start });
-      const end = await this.state.ElectionInstance.methods.getEnd().call(this).bind(this);
-      this.setState({ isElEnded: end });
+      // Get election start and end values
+      const start = await this.state.ElectionInstance.methods.getStart.call().call();
+      this.setState({ elStarted: start });
+      const end = await this.state.ElectionInstance.methods.getEnd.call().call();
+      this.setState({ elEnded: end });
 
       // Getting the total number of voters from the smart contract.    
       const voterCount = await this.state.ElectionInstance.methods
@@ -101,7 +101,7 @@ export default class Registration extends Component {
       /* Getting the voter details from the smart contract. */
       const voter = await this.state.ElectionInstance.methods
         .voterDetails(this.state.account)
-        .call(this).bind(this);
+        .call();
       this.setState({
         currentVoter: {
           address: voter.voterAddress,

@@ -54,15 +54,15 @@ export default class Home extends Component {
         account: accounts[0],
       });
 
-      const admin = await this.state.ElectionInstance.methods.getAdmin.bind(this);
+      const admin = await this.state.ElectionInstance.methods.getAdmin;
       if (this.state.account === admin) {
         this.setState({ isAdmin: true });
       }
 
       // Get election start and end values
-      const start = await this.state.ElectionInstance.methods.getStart.call().bind(this);
+      const start = await this.state.ElectionInstance.methods.getStart.call().call();
       this.setState({ elStarted: start });
-      const end = await this.state.ElectionInstance.methods.getEnd.call().bind(this);
+      const end = await this.state.ElectionInstance.methods.getEnd.call().call();
       this.setState({ elEnded: end });
 
       // Getting election details from the contract
