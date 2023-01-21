@@ -107,6 +107,9 @@ export default class Home extends Component {
     window.location.reload();
   };
   // register and start election
+  /* A function that is called when the form is submitted. It takes the
+  data from the form and sends it to the smart contract. */
+  
   registerElection = async (data) => {
     await this.state.ElectionInstance.methods
       .setElectionDetails(
