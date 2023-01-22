@@ -4,7 +4,7 @@ const AdminOnly = (props) => {
   return (
     <div className="container-item attention" style={{ borderColor: "tomato" }}>
       <center>
-        <div style={{ margin: "17px" }}>
+        <div style={{ margin: "19px" }}>
           <h1>{props.page}</h1>
         </div>
         <p>Admin access only.</p>

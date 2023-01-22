@@ -204,7 +204,7 @@ export default class Voting extends Component {
                 <>
                   <div className="container-item attention">
                     <center>
-                      <p>You're not registered. Please register first.</p>
+                      <p>You're not registered. You need to be registered</p>
                       <br />
                       <Link
                         to="/Registration"

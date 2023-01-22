@@ -2,14 +2,14 @@ import React from "react";
 
 const ElectionStatus = (props) => {
   const electionStatus = {
-    padding: "11px",
-    margin: "7px",
+    padding: "13px",
+    margin: "8px",
     width: "100%",
-    border: "1px solid tomato",
+    border: "1.5px solid tomato",
     marginLeft: "auto",
     marginRight: "auto",
     textAlign: "center",
-    borderRadius: "0.5em",
+    borderRadius: "0.6em",
     overflow: "auto",
     alignItems: "center",
     justifyContent: "space-around",
@@ -18,7 +18,7 @@ const ElectionStatus = (props) => {
   return (
     <div
       className="container-main"
-      style={{ borderTop: "1px solid", marginTop: "0px" }}
+      style={{ borderTop: "1.5px solid", marginTop: "0px" }}
     >
       <h3>Election Status</h3>
       <div style={electionStatus}>
