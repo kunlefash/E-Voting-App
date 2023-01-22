@@ -128,7 +128,7 @@ export default class Home extends Component {
       return (
         <>
           <Navbar />
-          <center>Loading Web3, accounts, and contract...</center>
+          <center>Loading Web3, accounts and contract...</center>
         </>
       );
     }
