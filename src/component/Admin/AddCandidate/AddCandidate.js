@@ -79,6 +79,8 @@ export default class AddCandidate extends Component {
       );
     }
   };
+  /* A function that updates the state of the component. */
+
   updateHeader = (event) => {
     this.setState({ header: event.target.value });
   };

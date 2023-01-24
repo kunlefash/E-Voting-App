@@ -62,12 +62,14 @@ export default class StartEnd extends Component {
       console.error(error);
     }
   };
+  /* Calling the startElection function in the smart contract. */
   startElection = async () => {
     await this.state.ElectionInstance.methods
       .startElection()
       .send({ from: this.state.account, gas: 1000000 });
     window.location.reload();
   };
+ /* Calling the endElection function in the smart contract. */
   endElection = async () => {
     await this.state.ElectionInstance.methods
       .endElection()
