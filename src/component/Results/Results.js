@@ -77,7 +77,7 @@ export default class Result extends Component {
           voteCount: candidate.voteCount,
         });
       }
-
+      // Updating the state with the new value of candidates. 
       this.setState({ candidates: this.state.candidates });
 
       // Admin account and verification

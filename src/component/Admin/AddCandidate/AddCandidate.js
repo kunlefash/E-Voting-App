@@ -79,14 +79,16 @@ export default class AddCandidate extends Component {
       );
     }
   };
-  /* A function that updates the state of the component. */
+  /* A function that updates the state for the candidate. */
 
   updateHeader = (event) => {
     this.setState({ header: event.target.value });
   };
+  //This update state for the candidate slogan
   updateSlogan = (event) => {
     this.setState({ slogan: event.target.value });
   };
+// This function that adds a candidate with his header and slogan to the blockchain. 
 
   addCandidate = async () => {
     await this.state.ElectionInstance.methods

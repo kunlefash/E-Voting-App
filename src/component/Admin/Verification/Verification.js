@@ -85,6 +85,7 @@ export default class Registration extends Component {
       console.error(error);
     }
   };
+  //This function is used to render unverified voters
   renderUnverifiedVoters = (voter) => {
     const verifyVoter = async (verifiedStatus, address) => {
       await this.state.ElectionInstance.methods
