@@ -6,11 +6,7 @@ import Results from "./component/Results/Results";
 import Registration from "./component/Registration/Registration";
 import AddCandidate from "./component/Admin/AddCandidate/AddCandidate";
 import Verification from "./component/Admin/Verification/Verification";
-//import test from "./component/test";
-//import StartEnd from "./component/Admin/StartEnd/StartEnd";
-
 import Footer from "./component/Footer/Footer";
-
 import "./App.css";
 
 export default class App extends Component {
@@ -34,12 +30,12 @@ export default class App extends Component {
     );
   }
 }
-// It renders a 404 page 
+//This renders the Error page(404)
 class NotFound extends Component {
   render() {
     return (
       <>
-        <h1>404 NOT FOUND!</h1>
+        <h1>Error 404: Page Not Found</h1>
         <center>
           <p>
             The page your are looking for doesn't exist.
