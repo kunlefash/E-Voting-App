@@ -1,10 +1,9 @@
 import React from "react";
-// import FileReader from "./FileReader";
 
 const test = () => {
   return (
     <>
-      <h1>Hello this is test page</h1>
+      <h1>Still working on this page</h1>
     </>
   );
 };
