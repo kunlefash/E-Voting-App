@@ -24,7 +24,6 @@ export default class Home extends Component {
       elDetails: {},
     };
   }
-
   // refreshing once
   componentDidMount = async () => {
     if (!window.location.hash) {
@@ -154,7 +153,7 @@ export default class Home extends Component {
         </div>
         {this.state.isAdmin ? (
           <>
-            <this.renderAdminHome />
+            <this.state.renderAdminHome />
           </>
         ) : this.state.elStarted ? (
           <>
