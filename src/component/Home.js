@@ -1,13 +1,20 @@
+// Node modules
 import React, { Component } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+
+// Components
 import Navbar from "./Navbar/Navigation";
 import NavbarAdmin from "./Navbar/NavigationAdmin";
 import UserHome from "./UserHome";
 import StartEnd from "./StartEnd";
 import ElectionStatus from "./ElectionStatus";
+
+// Contract
 import getWeb3 from "../getWeb3";
 import Election from "../contracts/Election.json";
+
+// CSS
 import "./Home.css";
 
 // const buttonRef = React.createRef();
@@ -24,6 +31,7 @@ export default class Home extends Component {
       elDetails: {},
     };
   }
+
   // refreshing once
   componentDidMount = async () => {
     if (!window.location.hash) {
@@ -53,15 +61,15 @@ export default class Home extends Component {
         account: accounts[0],
       });
 
-      const admin = await this.state.ElectionInstance.methods.getAdmin;
+      const admin = await this.state.ElectionInstance.methods.getAdmin().call();
       if (this.state.account === admin) {
         this.setState({ isAdmin: true });
       }
 
       // Get election start and end values
-      const start = await this.state.ElectionInstance.methods.getStart.call().call();
+      const start = await this.state.ElectionInstance.methods.getStart().call();
       this.setState({ elStarted: start });
-      const end = await this.state.ElectionInstance.methods.getEnd.call().call();
+      const end = await this.state.ElectionInstance.methods.getEnd().call();
       this.setState({ elEnded: end });
 
       // Getting election details from the contract
@@ -106,9 +114,6 @@ export default class Home extends Component {
     window.location.reload();
   };
   // register and start election
-  /* A function that is called when the form is submitted. It takes the
-  data from the form and sends it to the smart contract. */
-  
   registerElection = async (data) => {
     await this.state.ElectionInstance.methods
       .setElectionDetails(
@@ -127,7 +132,7 @@ export default class Home extends Component {
       return (
         <>
           <Navbar />
-          <center>Loading Web3, accounts and contract...</center>
+          <center>Loading Web3, accounts, and contract...</center>
         </>
       );
     }
@@ -153,7 +158,7 @@ export default class Home extends Component {
         </div>
         {this.state.isAdmin ? (
           <>
-            <this.state.renderAdminHome />
+            <this.renderAdminHome />
           </>
         ) : this.state.elStarted ? (
           <>
