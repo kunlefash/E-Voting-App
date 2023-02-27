@@ -21,7 +21,6 @@ export default class App extends Component {
                 <Route exact path="/Results" element={<Results />}></Route>
                 <Route exact path="/Registration" element={<Registration />}></Route>
                 <Route exact path="/Verification" element={<Verification />}></Route>
-                <Route exact path="/test" element={<test />}></Route>
                 <Route exact path="*" element={<NotFound />}></Route>
             </Routes>
             <Footer />
