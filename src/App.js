@@ -9,7 +9,7 @@ import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 
 class App extends Component {
-
+// Setting initial state for the app
   state = {
     web3: {},
     // General Poll State Variables
@@ -83,6 +83,9 @@ class App extends Component {
 
   async connectEthereum() {
     
+   
+   //Create a providerOptions object that contains walletConnect object
+   //Connect with INFURA
     const providerOptions = {
       walletconnect: {
         package: WalletConnectProvider, // required
@@ -96,6 +99,7 @@ class App extends Component {
       providerOptions // required
     });
     
+    // Connect web3modal library to user's wallet address
     const provider = await web3Modal.connect();
     const web3 = new Web3(provider);
     this.web3 = web3;
@@ -521,13 +525,13 @@ class App extends Component {
 
       let pollhtml = 
       <div className="column" style={{textAlign:'center'}}>
-      <h3>{name}</h3>
-      <p>{desc}</p><p>Yes Votes: {yes}</p><p>No Votes: {no}</p>
-      <button className="pollhashbutton" onClick={event=> this.switchDisplay(yesNoId)}>
-        Show Poll ID
-      </button>
-      <br/>
-      <p id ={yesNoId} style={{fontSize: '11px',display: 'none'}}>{this.state.pollHashListYesNo[x]}</p>
+        <h3>{name}</h3>
+        <p>{desc}</p><p>Yes Votes: {yes}</p><p>No Votes: {no}</p>
+        <button className="pollhashbutton" onClick={event=> this.switchDisplay(yesNoId)}>
+          Show Poll ID
+        </button>
+        <br/>
+        <p id ={yesNoId} style={{fontSize: '11px',display: 'none'}}>{this.state.pollHashListYesNo[x]}</p>
       </div>
       
       htmlInnerList.splice(htmlInnerList.length-2,0,pollhtml);
@@ -649,16 +653,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
         <div className = "header">
           <h1><a href="https://ethpolls.com" className ="title">EthPolls</a></h1>
           <br/>
           <br/>
           <br/>
         </div>
-
         <br/>
-
         <div className="subheader">
           <p className = "user"><span className="pulsate"><span className="userMessage">{this.state.userMessage}</span> {this.state.user}</span></p>
           <span className = "switches">
@@ -667,44 +668,37 @@ class App extends Component {
             <button className="astext" onClick= {event=> this.displayDashboard()}>View My Polls</button>
           </span>
         </div>
-
         <br/>
         <br/>
         <br/>
         <br/>
-
         {/*********** Search for Poll *************/}
         <div className="pollSearch" style={{display: this.state.searchdisplay}}>
-        <div className="searchBox">
-          <h1>Enter Poll ID</h1>
-          <p>Enter the Poll ID of the poll you wish to search then select its poll type</p>
-          <br/>
-          <br/>
-          <input type="text" placeholder="Type Poll ID Here ..." pollhash = {this.state.value} onChange={event=> this.setState({pollhash: event.target.value})}/>
-          <br/>
-          <br/>
-          <br/>
-        </div>
-
-        <div className="radioButtons">
-        <label className="container">Yes/No Poll
-            <input name ="radio" type="radio" onClick={event=> this.setState({pollType: 'yesNo'})}/>
-            <span className="checkmark"></span>
+          <div className="searchBox">
+            <h1>Enter Poll ID</h1>
+            <p>Enter the Poll ID of the poll you wish to search then select its poll type</p>
+            <br/>
+            <br/>
+            <input type="text" placeholder="Type Poll ID Here ..." pollhash = {this.state.value} onChange={event=> this.setState({pollhash: event.target.value})}/>
+            <br/>
+            <br/>
+            <br/>
+          </div>
+          <div className="radioButtons">
+            <label className="container">Yes/No Poll
+              <input name ="radio" type="radio" onClick={event=> this.setState({pollType: 'yesNo'})}/>
+              <span className="checkmark"></span>
+            </label>
+            <label className="container">Multi-Data Poll
+              <input name ="radio" type="radio" onClick={event=> this.setState({pollType: 'multiData'})}/>
+              <span className="checkmark"></span>
           </label>
-
-          <label className="container">Multi-Data Poll
-            <input name ="radio" type="radio" onClick={event=> this.setState({pollType: 'multiData'})}/>
-            <span className="checkmark"></span>
-        </label>
         </div>
-
         <br/>
         <br/>
-
         <div className ="centerbtn">
           <button onClick={this.searchPoll} className="button">Search</button>
         </div>
-
         <br/>
         <br/>
         <br/>
