@@ -4,6 +4,7 @@ import {Bar} from 'react-chartjs-2';
 class MultiChart extends Component {
 
 
+    //Setting the default values for the props
     static defaultProps = {
         labels: [],
         results: [],

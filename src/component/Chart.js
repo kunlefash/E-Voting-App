@@ -8,6 +8,7 @@ class Chart extends Component {
         noData: 0,
         yesData: 0
     }
+    //  Setting the state of the chartData object. 
 
     constructor(props) {
         super(props);
@@ -26,11 +27,13 @@ class Chart extends Component {
         }
     }
 
+    // This function is called when the component is mounted
     test() {
         console.log(this.props.noData);
         console.log(this.props.yesData);
     }
 
+    //Function is called after the component is rendered
     componentDidMount(){
         this.test();
     }
